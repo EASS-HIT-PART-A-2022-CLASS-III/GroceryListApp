@@ -17,12 +17,35 @@ async def GetHomepage():
 @app.post("/grocery-items/")
 async def CreateItem(item: GroceryItem):
     GroceryItems.append(item)
-    return {"item": item}
+    return {"message": f"added {item.name} x{item.quantity} from {item.department} to your list"}
 
 @app.get("/grocery-items/")
 async def GetAllItems():
-    return {"items": GroceryItems}
+    out = {}
+    for item in GroceryItems:
+        if item.department not in out:
+            out[item.department] = {item.name:item.quantity}
+        else:
+            out[item.department].update({item.name:item.quantity})
+    return out
 
-#add delete, edit item, check/uncheck
-#create new list, edit, delete, show list
-#sort by name, dep
+@app.delete("/grocery-items/")
+async def DeleteItem(ItemName:str):
+    for item in GroceryItems:
+        if item.name == ItemName:
+            GroceryItems.remove(item)
+            return{"message":f"deleted {ItemName} from your list"}
+    return{"message":f"{ItemName} not found"}
+
+@app.put("/grocery-items/")
+async def EditItem(updated: GroceryItem):
+    for item in GroceryItems:
+        if item.name == updated.name:
+            item.name = updated.name
+            item.quantity = updated.quantity
+            item.department = updated.department
+            return{"message":f"Updated {updated} from your list"}
+    return{"message":f"{updated} not found"}
+
+#homepage = show list and 3 buttons
+#list sorted by name or deparment    
