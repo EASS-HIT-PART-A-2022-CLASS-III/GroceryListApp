@@ -29,14 +29,6 @@ async def GetAllItems():
             out[item.department].update({item.name:item.quantity})
     return out
 
-@app.delete("/grocery-items/")
-async def DeleteItem(ItemName:str):
-    for item in GroceryItems:
-        if item.name == ItemName:
-            GroceryItems.remove(item)
-            return{"message":f"deleted {ItemName} from your list"}
-    return{"message":f"{ItemName} not found"}
-
 @app.put("/grocery-items/")
 async def EditItem(updated: GroceryItem):
     for item in GroceryItems:
@@ -46,6 +38,14 @@ async def EditItem(updated: GroceryItem):
             item.department = updated.department
             return{"message":f"Updated {updated} from your list"}
     return{"message":f"{updated} not found"}
+
+@app.delete("/grocery-items/{ItemName}")
+async def DeleteItem(ItemName:str):
+    for item in GroceryItems:
+        if item.name == ItemName:
+            GroceryItems.remove(item)
+            return{"message":f"deleted {ItemName} from your list"}
+    return{"message":f"{ItemName} not found"}
 
 #homepage = show list and 3 buttons
 #list sorted by name or deparment    
