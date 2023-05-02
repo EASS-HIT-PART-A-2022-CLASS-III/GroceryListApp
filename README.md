@@ -1,1 +1,1 @@
-# GroceryList-EASS
+# GroceryListApp
