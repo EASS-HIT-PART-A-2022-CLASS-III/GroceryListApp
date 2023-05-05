@@ -45,7 +45,4 @@ async def DeleteItem(ItemName:str):
         if item.name == ItemName:
             GroceryItems.remove(item)
             return{"message":f"deleted {ItemName} from your list"}
-    return{"message":f"{ItemName} not found"}
-
-#homepage = show list and 3 buttons
-#list sorted by name or deparment    
+    return{"message":f"{ItemName} not found"}  
