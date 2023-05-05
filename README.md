@@ -13,10 +13,16 @@ Main features are:
 
 ## Installation
 
-1. clone this repository
-2. startup Docker
-3. docker build -t <name>
-4. docker run -p 8000:8000 <name>
+1. Clone this repository
+2. Startup Docker 
+3. Execute-
+```
+docker build -t <name>
+```
+4. Execute-
+```
+docker run -p 8000:8000 <name>
+```
 
 ## Usage
 
