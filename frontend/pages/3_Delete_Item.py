@@ -1,10 +1,10 @@
 import streamlit as st
 import requests as rq
 
-st.title("Delete Item")
+st.title("Delete Item Form")
+st.write("Please use this form to delete an existing item by name:")
 
 with st.form("CreateItemForm"):
-    st.write("Please enter your item:")
     name = st.text_input(label="Name:")
     submit = st.form_submit_button("Submit")
     if submit:
