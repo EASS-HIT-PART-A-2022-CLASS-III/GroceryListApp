@@ -15,18 +15,19 @@ Main features are:
 
 1. Clone this repository
 2. Startup Docker 
-3. Execute-
+3. Execute from the folder-
 ```
-docker build -t <name>
+docker-compose build 
 ```
-4. Execute-
+4. Execute from the folder-
 ```
-docker run -p 8000:8000 <name>
+docker-compose up
 ```
 
 ## Usage
 
-TBA
+* Enter the url http://localhost:8501/ in your browser
+* Follow the instructions on the site
 
 ## Examples
 
