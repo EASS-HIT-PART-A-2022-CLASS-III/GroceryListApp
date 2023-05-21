@@ -17,10 +17,6 @@ Main features are:
 2. Startup Docker 
 3. Execute from the folder-
 ```
-docker-compose build 
-```
-4. Execute from the folder-
-```
 docker-compose up
 ```
 
