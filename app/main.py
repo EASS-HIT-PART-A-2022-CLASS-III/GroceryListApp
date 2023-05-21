@@ -14,12 +14,12 @@ class GroceryItem(BaseModel):
 async def GetHomepage():
     return {"message": "Welcome :)"}
 
-@app.post("/grocery-items/")
+@app.post("/v1/grocery-items/")
 async def CreateItem(item: GroceryItem):
     GroceryItems.append(item)
     return {"message": f"added {item.name} x{item.quantity} from {item.department} to your list"}
 
-@app.get("/grocery-items/")
+@app.get("/v1/grocery-items/")
 async def GetAllItems():
     out = {}
     for item in GroceryItems:
@@ -29,7 +29,7 @@ async def GetAllItems():
             out[item.department].update({item.name:item.quantity})
     return out
 
-@app.put("/grocery-items/")
+@app.put("/v1/grocery-items/")
 async def EditItem(updated: GroceryItem):
     for item in GroceryItems:
         if item.name == updated.name:
@@ -39,7 +39,7 @@ async def EditItem(updated: GroceryItem):
             return{"message":f"Updated {updated} from your list"}
     return{"message":f"{updated} not found"}
 
-@app.delete("/grocery-items/{ItemName}")
+@app.delete("/v1/grocery-items/{ItemName}")
 async def DeleteItem(ItemName:str):
     for item in GroceryItems:
         if item.name == ItemName:
