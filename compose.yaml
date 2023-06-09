@@ -3,7 +3,19 @@ services:
     build: app/
     ports:
       - "8000:8000"
+    depends_on:
+      - database
+    links:
+    - database:db
   frontend:
     build: frontend/
     ports:
     - "8501:8501"
+  database:
+    image: mongo
+    restart: on-failure
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: root
+    ports:
+      - "27017:27017"

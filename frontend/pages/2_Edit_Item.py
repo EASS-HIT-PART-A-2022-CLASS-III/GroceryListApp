@@ -12,5 +12,5 @@ with st.form("CreateItemForm"):
         department = "uncategorized"
     submit = st.form_submit_button("Submit")
     if submit:
-        rs = rq.put("http://grocerylistapp-backend-1:8000/v1/grocery-items/",json={"name":name,"quantity":quantity,"department":department}).json()
+        rs = rq.put("http://grocerylistapp-backend-1:8000/v2/grocery-items/",json={"name":name,"quantity":quantity,"department":department}).json()
         st.write(rs)

@@ -8,5 +8,5 @@ with st.form("CreateItemForm"):
     name = st.text_input(label="Name:")
     submit = st.form_submit_button("Submit")
     if submit:
-        rs = rq.delete(f"http://grocerylistapp-backend-1:8000/v1/grocery-items/{name}").json()
+        rs = rq.delete(f"http://grocerylistapp-backend-1:8000/v2/grocery-items/{name}").json()
         st.write(rs)
