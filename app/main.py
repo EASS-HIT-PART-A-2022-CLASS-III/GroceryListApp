@@ -61,5 +61,5 @@ async def DeleteItem(ItemName:str):
 
 @app.delete("/v2/grocery-items/{ItemName}")
 async def DeleteItem(ItemName:str):
-    msg = await DBDeleteItem(ItemName.dict())
+    msg = await DBDeleteItem(ItemName)
     return msg

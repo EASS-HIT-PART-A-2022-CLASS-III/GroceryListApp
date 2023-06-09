@@ -19,4 +19,4 @@ else:
             name_list.append(name)
             quantity_list.append(quantity)
     df = pd.DataFrame({"name": name_list, "quantity": quantity_list,"department":dep_list})
-    st.dataframe(df)
+    st.dataframe(df, hide_index=True)
