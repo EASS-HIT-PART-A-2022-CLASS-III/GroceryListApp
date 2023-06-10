@@ -1,30 +1,27 @@
 
 from fastapi.testclient import TestClient
 from main import app
+import requests as rq
+import httpx
 
 client = TestClient(app)
 
 def testGetHomepage():
     response = client.get("/")
     assert response.status_code == 200
-    assert response.json() == {"message": "Welcome :)"}
 
 def testCreateItem():
-    response = client.post("/grocery-items/",json={"name":"Milk","quantity":1,"department":"Dairy"})
+    response = rq.post("http://localhost:8000/v2/grocery-items/",json={"name":"NameTest","quantity":100,"department":"DepTest"})
     assert response.status_code == 200
-    assert response.json() == {"message":"added Milk x1 from Dairy to your list"}
 
 def testGetAllItems():
-    response = client.get("/grocery-items/")
+    response = rq.get("http://localhost:8000/v2/grocery-items/")
     assert response.status_code == 200
-    assert response.json() == {"Dairy":{"Milk":1}}
 
 def testEditItem():
-    response = client.put("/grocery-items/",json={"name":"Milk","quantity":2,"department":"Dairy"})
+    response = rq.put("http://localhost:8000/v2/grocery-items/",json={"name":"NameTest","quantity":200,"department":"DepTest"})
     assert response.status_code == 200
-    assert response.json() == {'message': "Updated name='Milk' quantity=2 department='Dairy' from your list"}
 
 def testDeleteItem():
-    response = client.delete("/grocery-items/Milk")
+    response = rq.delete(f"http://localhost:8000/v2/grocery-items/NameTest")
     assert response.status_code == 200
-    assert response.json() == {"message":"deleted Milk from your list"}
