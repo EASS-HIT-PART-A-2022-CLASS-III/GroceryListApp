@@ -11,7 +11,7 @@ colletion = db.GroceryCollection
 async def DBCreateItem(item: dict):
     out = await colletion.insert_one(item)
     if out:
-        return {"message": f'added {item["name"]} x{item["quantity"]} from {item["department"]} to your list'}
+        return {"message": f'Added {item["name"]} x{item["quantity"]} from {item["department"]} to your list'}
     else:
         return {"Error": "Adding Grocery item failed :("}
 
