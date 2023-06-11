@@ -16,7 +16,7 @@ Main features are:
 
 ## Installation
 
-1. Clone this repository
+1. Clone this repository-
 ```
 git clone https://github.com/EASS-HIT-PART-A-2022-CLASS-III/GroceryListApp.git
 ```
