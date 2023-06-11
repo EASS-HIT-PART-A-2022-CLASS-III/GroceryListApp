@@ -36,7 +36,3 @@ docker-compose up
 * Frontend: Streamlit
 * Backend: Python, FastAPI
 * Database: MongoDB
-
-## Examples
-
-TBA
