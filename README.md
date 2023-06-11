@@ -36,3 +36,6 @@ docker-compose up
 * Frontend: Streamlit
 * Backend: Python, FastAPI
 * Database: MongoDB
+
+## Example
+![GroceryListApp Screenshot](https://github.com/EASS-HIT-PART-A-2022-CLASS-III/GroceryListApp/assets/96665899/2cdb597c-57cc-41b0-99aa-410086d4cc98)
